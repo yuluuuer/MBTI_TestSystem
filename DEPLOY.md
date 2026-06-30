@@ -50,7 +50,7 @@ spring:
 
 ```bash
 cd backend
-mvn spring-boot:run
+./apache-maven-3.9.6/bin/mvn spring-boot:run
 ```
 
 后端地址：`http://localhost:8080`
