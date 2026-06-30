@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply text-slate-900 antialiased;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB",
+      "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: linear-gradient(135deg, #f5f3ff 0%, #eff6ff 25%, #fdf2f8 50%, #f0fdf4 75%, #f5f3ff 100%);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    @apply text-white;
+    background: linear-gradient(135deg, #8b5cf6, #6366f1);
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-white/60 shadow-sm;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .card-hover {
+    @apply card transition-all duration-300;
+  }
+  .card-hover:hover {
+    border-color: rgba(139, 92, 246, 0.3);
+    box-shadow: 0 8px 32px rgba(139, 92, 246, 0.12), 0 0 0 1px rgba(139, 92, 246, 0.08);
+    transform: translateY(-2px);
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-xl px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 active:scale-[0.97] disabled:cursor-not-allowed disabled:opacity-50;
+    background: linear-gradient(135deg, #8b5cf6, #6366f1, #3b82f6);
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+    box-shadow: 0 4px 16px rgba(99, 102, 241, 0.3);
+  }
+  .btn-primary:hover:not(:disabled) {
+    box-shadow: 0 6px 24px rgba(99, 102, 241, 0.45);
+    transform: translateY(-1px);
+  }
+  .btn-primary:disabled {
+    background: linear-gradient(135deg, #a5b4fc, #93c5fd);
+    box-shadow: none;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-xl border border-white/60 px-5 py-2.5 text-sm font-medium text-slate-700 transition-all duration-300 active:scale-[0.97];
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(139, 92, 246, 0.3);
+    box-shadow: 0 4px 16px rgba(139, 92, 246, 0.08);
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center rounded-xl border px-4 py-2 text-sm font-medium text-red-600 transition-all duration-300 active:scale-[0.97];
+    background: rgba(255, 255, 255, 0.6);
+    border-color: rgba(239, 68, 68, 0.2);
+    backdrop-filter: blur(8px);
+  }
+  .btn-danger:hover {
+    background: rgba(254, 242, 242, 0.8);
+    border-color: rgba(239, 68, 68, 0.4);
+    box-shadow: 0 4px 16px rgba(239, 68, 68, 0.12);
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-white/60 px-3.5 py-2.5 text-sm transition-all duration-300 placeholder:text-slate-400 focus:outline-none;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(8px);
+  }
+  .input:focus {
+    border-color: rgba(139, 92, 246, 0.5);
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.12), 0 4px 16px rgba(139, 92, 246, 0.06);
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold;
+  }
+
+  .badge-primary {
+    @apply badge text-white;
+    background: linear-gradient(135deg, #8b5cf6, #6366f1);
+  }
+
+  .badge-success {
+    @apply badge text-emerald-700 ring-1 ring-emerald-600/20;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(52, 211, 153, 0.15));
+  }
+
+  .badge-warning {
+    @apply badge text-amber-700 ring-1 ring-amber-600/20;
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(251, 191, 36, 0.15));
+  }
+
+  .badge-muted {
+    @apply badge text-slate-600;
+    background: rgba(148, 163, 184, 0.15);
+  }
+
+  .section-title {
+    @apply text-2xl font-bold tracking-tight text-slate-900;
+    background: linear-gradient(135deg, #7c3aed, #4f46e5, #2563eb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
