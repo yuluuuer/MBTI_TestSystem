@@ -89,7 +89,8 @@ Vite 开发服务器会把 `/api` 请求代理到 `http://localhost:8080`。
 ```bash
 # 后端开发运行
 cd backend
-mvn spring-boot:run
+# 使用项目内 Maven
+./apache-maven-3.9.6/bin/mvn spring-boot:run
 
 # 后端打包
 cd backend
