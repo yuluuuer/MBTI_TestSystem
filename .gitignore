@@ -16,6 +16,8 @@ backend/apache-maven-*/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+hs_err_pid*
+replay_pid*
 
 # Environment and local config
 .env
@@ -31,10 +33,18 @@ Thumbs.db
 
 # Java / Maven
 *.class
+*.ctxt
 *.jar
 *.war
+*.nar
 *.ear
+.mtj.tmp/
 .mvn/wrapper/maven-wrapper.jar
+
+# Archives
+*.zip
+*.tar.gz
+*.rar
 
 # Frontend cache
 .vite/

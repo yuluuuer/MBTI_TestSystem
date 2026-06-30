@@ -1,13 +1,12 @@
-# MBTI 性格测试系统
+# MBTI_TestSystem
 
-这是一个基于 Java 后端和 Vue 前端实现的 MBTI 性格测试系统，包含用户测试、结果分析、历史记录和管理后台。
+这是一个基于 Java Spring Boot 和 Vue 3 实现的 MBTI 性格测试系统，包含用户测试、结果分析、历史记录和管理后台。
 
 ## 当前技术栈
 
 - 后端：Java 17、Spring Boot 3.2.5、Spring Security、Spring Data JPA、Hibernate、JWT、Maven
 - 前端：Vue 3、Vite 5、Vue Router、Pinia、Axios、Tailwind CSS
 - 数据库：MySQL 5.7+ / 8.0+
-
 
 ## 功能模块
 
@@ -44,17 +43,17 @@
 CREATE DATABASE IF NOT EXISTS mbti CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 ```
 
-默认数据库配置在 `backend/src/main/resources/application.yml`：
+后端默认读取环境变量，未设置时会使用本地默认值：
 
 ```yaml
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/mbti?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
-    username: root
-    password: 123456
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/mbti?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true}
+    username: ${SPRING_DATASOURCE_USERNAME:root}
+    password: ${SPRING_DATASOURCE_PASSWORD:root}
 ```
 
-如本机 MySQL 账号不同，先修改该配置。
+如本机 MySQL 账号不同，可设置环境变量，或参考 `backend/.env.example`。
 
 ### 2. 启动后端
 
